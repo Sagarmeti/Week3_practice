@@ -1,40 +1,36 @@
 import java.util.Scanner; 
-class Ex1 {   
+class ArrayMethods {   
   Scanner s = new Scanner(System.in);  
   int arr[] = new int[100];  
   int no_elements = 0;   
   public void insertFirst() {     
-    System.out.println("Enter your value to insert in first index ");               
-    int num=s.nextInt();  
-    if(no_elements==0){  
-    arr[0]=num;        
+    System.out.println("Enter your value to insert in first index ");      
+    int num=s.nextInt();       
+    if(no_elements==0){          
+      arr[0]=num;        
       no_elements++;      
     }       
-    else{           
-      for(int i=no_elements;i>0;i--){                
-        arr[i]=arr[i-1];           
+    else{            
+      for(int i=no_elements;i>0;i--){           
+        arr[i]=arr[i-1];          
       }            
-      arr[0]=num;              
+      arr[0]=num;             
       no_elements++;        
     }  
   }  
-  public void display(){   
-    for(int i=0;i<no_elements;i++){     
-      System.out.print(arr[i]+" ");   
-    }      
-  }  
+
   public void insertLast(){    
     System.out.println("Enter your value to insert in last index ");      
     int num=s.nextInt();       
-    if(no_elements==0){         
-      arr[0]=num;         
-      no_elements++;
-    }
+    if(no_elements==0){        
+      arr[0]=num;        
+      no_elements++;       
+    }    
     else{        
       arr[no_elements]=num;         
       no_elements++;    
     }     
-  }   
+  }
   public void insertSpecific(){    
     System.out.println("Enter your new value");    
     int value=s.nextInt();     
@@ -110,33 +106,38 @@ class Ex1 {
     else{      
       System.out.println("not found");    
     }  
-  }    
-  public void viewOptions() {   
+  }
+  public void display(){   
+    for(int i=0;i<no_elements;i++){     
+      System.out.print(arr[i]+" ");   
+    }  
+    viewOptions();
+  }   
+  public void viewOptions() {    
+    System.out.println("\n1. Insert an element in first index position");    
+    System.out.println("2. Insert an element in last index position");
+    System.out.println("3. Insert an element in specific index position");    
+    System.out.println("4. Delete an element in first index ");    
+    System.out.println("5. Delete an element in last index ");    
+    System.out.println("6. Delete an element in specific index ");    
+    System.out.println("7. Delete an element in search value ");      
+    System.out.println("0. EXIT"); 
+    System.out.println("choose your option");    
     int option=0;    
     do{    
-      System.out.println("\n1. Insert an element in first index position");    
-      System.out.println("2. Insert an element in last index position");    
-      System.out.println("3. Insert an element in specific index position");    
-      System.out.println("4. Delete an element in first index ");    
-      System.out.println("5. Delete an element in last index ");    
-      System.out.println("6. Delete an element in specific index ");    
-      System.out.println("7. Delete an element in search value ");      
-      System.out.println("0. EXIT");        
-      System.out.println("choose your option");    
       option=s.nextInt();    
-      switch(option){      
-        case 1:{          
-          insertFirst();          
-          display();          
-          break;        
-        }      
-        case 2:        
-          {          
-            insertLast();          
-            display();          
-            break;      
-          }  
-        case 3:{          
+       switch(option){      
+         case 1:        
+           {          
+             insertFirst();          
+             display();        
+           } 
+         case 2:
+           {
+             insertLast();
+             display();
+           }
+           case 3:{          
           insertSpecific();          
           display();          
           break;       
@@ -165,13 +166,12 @@ class Ex1 {
           System.out.println("Thank you");        
           break;      
         }    
-      }    
+       }    
     }      
-      while(option!=0);        
+      while(option!=0);  
   }   
-  
   public static void main(String args[]) {     
-    Ex1 obj = new Ex1();    
+    ArrayMethods obj = new ArrayMethods();    
     obj.viewOptions();   
   }
 }
